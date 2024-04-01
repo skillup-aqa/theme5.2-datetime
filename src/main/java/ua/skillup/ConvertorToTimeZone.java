@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class ConvertorToTimeZone {
 
     public static ZonedDateTime convertToTimezone(ZonedDateTime time, String timezone) {
-        return null;
+        return time.withZoneSameInstant(ZoneId.of(timezone));
     }
     public static void main(String[] args) {
         System.out.println("Input the timezone in the format: 'Europe/Kiev'");
