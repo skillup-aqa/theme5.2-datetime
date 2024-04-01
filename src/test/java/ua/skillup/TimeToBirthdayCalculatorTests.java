@@ -53,6 +53,4 @@ public class TimeToBirthdayCalculatorTests {
         LocalDate expected = LocalDate.now().minusDays(1).plusYears(1);
         assertEquals(TimeToBirthdayCalculator.getNextBirthday(birthday), expected);
     }
-
-
 }

@@ -1,7 +1,6 @@
 package ua.skillup;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public enum ZodiacSign {
@@ -41,10 +40,6 @@ public enum ZodiacSign {
         return null;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public static void main(String[] args) {
         System.out.println("Input your date of birth in the format: 'yyyy-MM-dd'");
         System.out.println("For example: '1990-01-01'");
@@ -56,7 +51,7 @@ public enum ZodiacSign {
         ZodiacSign zodiacSign = ZodiacSign.getZodiacSign(dateOfBirth.getDayOfMonth(), dateOfBirth.getMonthValue());
 
         if(zodiacSign != null) {
-            System.out.println("Your zodiac sign is: " + zodiacSign.getName());
+            System.out.println("Your zodiac sign is: " + zodiacSign.name());
         } else {
             System.out.println("Invalid date of birth");
         }

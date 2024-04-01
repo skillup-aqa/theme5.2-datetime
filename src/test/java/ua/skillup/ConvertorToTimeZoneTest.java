@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.Scanner;
 
 import static org.testng.Assert.assertEquals;
 
