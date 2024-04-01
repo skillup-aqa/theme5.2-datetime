@@ -1,12 +1,12 @@
 package ua.skillup;
 
-import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Scanner;
 
 public class ConvertorToTimeZone {
 
     public static ZonedDateTime convertToTimezone(ZonedDateTime time, String timezone) {
+        // TODO: implement this method
         return null;
     }
     public static void main(String[] args) {

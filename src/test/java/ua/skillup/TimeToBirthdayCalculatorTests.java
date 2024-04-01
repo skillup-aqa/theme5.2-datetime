@@ -12,31 +12,45 @@ public class TimeToBirthdayCalculatorTests {
 
     @Test
     public void testCalculateSecondsToBirthday() {
-        LocalDate birthday = now.minusMinutes(1).toLocalDate();
-        assertEquals(TimeToBirthdayCalculator.secondsToBirthday(birthday, now), 60);
+        LocalDate birthday = now.plusDays(1).toLocalDate();
+        assertEquals(TimeToBirthdayCalculator.secondsToBirthday(now, birthday), 60 * 60 * 24);
     }
 
     @Test
     public void testCalculateMinutesToBirthday() {
-        LocalDate birthday = now.minusHours(1).toLocalDate();
-        assertEquals(TimeToBirthdayCalculator.minutesToBirthday(birthday, now), 60);
+        LocalDate birthday = now.plusDays(1).toLocalDate();
+        assertEquals(TimeToBirthdayCalculator.minutesToBirthday(now, birthday), 60 * 24);
     }
 
     @Test
     public void testCalculateHoursToBirthday() {
-        LocalDate birthday = now.minusDays(1).toLocalDate();
-        assertEquals(TimeToBirthdayCalculator.hoursToBirthday(birthday, now), 24);
+        LocalDate birthday = now.plusDays(1).toLocalDate();
+        assertEquals(TimeToBirthdayCalculator.hoursToBirthday(now, birthday), 24);
     }
 
     @Test
     public void testCalculateDaysToBirthday() {
-        LocalDate birthday = now.minusDays(10).toLocalDate();
-        assertEquals(TimeToBirthdayCalculator.daysToBirthday(birthday, now), 10);
+        LocalDate birthday = now.plusDays(10).toLocalDate();
+        assertEquals(TimeToBirthdayCalculator.daysToBirthday(now, birthday), 10);
     }
 
     @Test
     public void testCalculateMonthsToBirthday() {
-        LocalDate birthday = now.minusMonths(1).toLocalDate();
-        assertEquals(TimeToBirthdayCalculator.monthsToBirthday(birthday, now), 1);
+        LocalDate birthday = now.plusMonths(10).toLocalDate();
+        assertEquals(TimeToBirthdayCalculator.monthsToBirthday(now, birthday), 10);
+    }
+
+    @Test
+    public void testGetNextBirthdayThisYear() {
+        LocalDate birthday = LocalDate.now().minusYears(10).plusDays(1);
+        LocalDate expected = LocalDate.now().plusDays(1);
+        assertEquals(TimeToBirthdayCalculator.getNextBirthday(birthday), expected);
+    }
+
+    @Test
+    public void testGetNextBirthdayNextYear() {
+        LocalDate birthday = LocalDate.now().minusYears(10).minusDays(1);
+        LocalDate expected = LocalDate.now().minusDays(1).plusYears(1);
+        assertEquals(TimeToBirthdayCalculator.getNextBirthday(birthday), expected);
     }
 }

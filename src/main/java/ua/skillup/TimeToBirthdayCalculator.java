@@ -5,24 +5,35 @@ import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class TimeToBirthdayCalculator {
-    public static int secondsToBirthday(LocalDate dateOfBirth, LocalDateTime now) {
+
+    public static long secondsToBirthday(LocalDateTime now, LocalDate nextBirthday) {
+        // TODO: implement this method
         return -1;
     }
 
-    public static int minutesToBirthday(LocalDate dateOfBirth, LocalDateTime now) {
+    public static long minutesToBirthday(LocalDateTime now, LocalDate nextBirthday) {
+        // TODO: implement this method
         return -1;
     }
 
-    public static int hoursToBirthday(LocalDate dateOfBirth, LocalDateTime now) {
+    public static long hoursToBirthday(LocalDateTime now, LocalDate nextBirthday) {
+        // TODO: implement this method
         return -1;
     }
 
-    public static int daysToBirthday(LocalDate dateOfBirth, LocalDateTime now) {
+    public static long daysToBirthday(LocalDateTime now, LocalDate nextBirthday) {
+        // TODO: implement this method
         return -1;
     }
 
-    public static int monthsToBirthday(LocalDate dateOfBirth, LocalDateTime now) {
+    public static long monthsToBirthday(LocalDateTime now, LocalDate nextBirthday) {
+        // TODO: implement this method
         return -1;
+    }
+
+    public static LocalDate getNextBirthday(LocalDate dateOfBirth) {
+        // TODO: implement this method
+        return null;
     }
 
     public static void main(String[] args) {
@@ -30,16 +41,23 @@ public class TimeToBirthdayCalculator {
         System.out.println("For example: '1990-01-01'");
 
         Scanner scanner = new Scanner(System.in);
-        String dateOfBirthString = scanner.nextLine();
+        String dateOfBirthStr = scanner.nextLine();
 
-        LocalDate dateOfBirth = LocalDate.parse(dateOfBirthString);
         LocalDateTime now = LocalDateTime.now();
+        LocalDate dateOfBirth = LocalDate.parse(dateOfBirthStr);
+
+        if(dateOfBirth.getMonthValue() == now.getMonthValue() && dateOfBirth.getDayOfMonth() == now.getDayOfMonth()) {
+            System.out.println("Happy Birthday!");
+            return;
+        }
+
+        LocalDate nextBirthday = getNextBirthday(dateOfBirth);
 
         System.out.println("Until your next birthday:");
-        System.out.println(secondsToBirthday(dateOfBirth, now) + " seconds");
-        System.out.println(minutesToBirthday(dateOfBirth, now) + " minutes");
-        System.out.println(hoursToBirthday(dateOfBirth, now) + " hours");
-        System.out.println(daysToBirthday(dateOfBirth, now) + " days");
-        System.out.println(monthsToBirthday(dateOfBirth, now) + " months");
+        System.out.println(secondsToBirthday(now, nextBirthday) + " seconds");
+        System.out.println(minutesToBirthday(now, nextBirthday) + " minutes");
+        System.out.println(hoursToBirthday(now, nextBirthday) + " hours");
+        System.out.println(daysToBirthday(now, nextBirthday) + " days");
+        System.out.println(monthsToBirthday(now, nextBirthday) + " months");
     }
 }

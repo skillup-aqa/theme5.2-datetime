@@ -14,7 +14,7 @@ public class AgeCalculatorTest {
     }
 
     @Test
-    public void testCalculateAgMoreThenYear() {
+    public void testCalculateAgeMoreThenYear() {
         LocalDate lessThenYear = LocalDate.now().minusDays(366);
         assertEquals(AgeCalculator.calculateAge(lessThenYear), 1);
     }
