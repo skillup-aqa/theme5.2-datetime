@@ -3,12 +3,7 @@ package ua.skillup;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
-import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class TimeToBirthdayCalculator {
@@ -16,11 +11,6 @@ public class TimeToBirthdayCalculator {
     private static Duration calculateDuration(LocalDateTime now, LocalDate nextBirthday) {
         return Duration.between(now, nextBirthday.atStartOfDay());
     }
-
-    private static Period calculatePeriod(LocalDateTime now, LocalDate nextBirthday) {
-        return Period.between(now.toLocalDate(), nextBirthday);
-    }
-
 
     public static long secondsToBirthday(LocalDateTime now, LocalDate nextBirthday) {
         return calculateDuration(now, nextBirthday).getSeconds();
