@@ -22,7 +22,7 @@ public class DayOfWeekCalculator {
 
     public static void main(String[] args) {
 
-        System.out.println(calculateDayOfWeek(2024, 04, 10));
+        System.out.println(calculateDayOfWeek(2024, 4, 10));
         printFirstDayOfWeekAndLastDayOfWeek();
     }
 }
