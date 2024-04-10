@@ -1,12 +1,17 @@
 package ua.skillup;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class AgeCalculator {
     public static int calculateAge(LocalDate dateOfBirth) {
-        // TODO: implement this method
-        return -1;
+        LocalDate now = LocalDate.now();
+        int years;
+        years = (int) Period.between(dateOfBirth, now).toTotalMonths() / 12;
+
+        return years;
     }
 
     public static void main(String[] args) {
