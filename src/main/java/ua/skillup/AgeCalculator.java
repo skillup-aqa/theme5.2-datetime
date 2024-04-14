@@ -8,7 +8,7 @@ public class AgeCalculator {
     public static int calculateAge(LocalDate dateOfBirth) {
         LocalDate now = LocalDate.now();
         int years;
-        years = (int) Period.between(dateOfBirth, now).toTotalMonths() / 12;
+        years = Period.between(dateOfBirth, now).getYears();
 
         return years;
     }
