@@ -11,7 +11,7 @@ public class OnboardingCalendar {
         if (firstDayOfMonth <= 2) {
             return currentMonth.plusDays(9 - firstDayOfMonth).getDayOfMonth();
         }
-            return currentMonth.plusDays(16 - firstDayOfMonth).getDayOfMonth();
+        return currentMonth.plusDays(16 - firstDayOfMonth).getDayOfMonth();
 
     }
 
