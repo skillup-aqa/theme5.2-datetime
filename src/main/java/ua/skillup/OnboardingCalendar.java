@@ -8,13 +8,11 @@ public class OnboardingCalendar {
     public int getSecondTuesdayOfMonth(int month, int year) {
         LocalDate currentMonth = LocalDate.of(year, month, 1);
         int firstDayOfMonth = currentMonth.getDayOfWeek().getValue();
-        if (firstDayOfMonth == 2) {
-            return currentMonth.plusDays(7).getDayOfMonth();
-        } else if (firstDayOfMonth > 2) {
-            return currentMonth.plusDays(16 - firstDayOfMonth).getDayOfMonth();
-        } else {
+        if (firstDayOfMonth <= 2) {
             return currentMonth.plusDays(9 - firstDayOfMonth).getDayOfMonth();
         }
+            return currentMonth.plusDays(16 - firstDayOfMonth).getDayOfMonth();
+
     }
 
 
