@@ -2,38 +2,44 @@ package ua.skillup;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class TimeToBirthdayCalculator {
 
+    public static Duration calculateDuration(LocalDateTime now, LocalDate nextBirthday) {
+        return Duration.between(now, nextBirthday.atStartOfDay());
+    }
+
     public static long secondsToBirthday(LocalDateTime now, LocalDate nextBirthday) {
-        // TODO: implement this method
-        return -1;
+        return calculateDuration(now, nextBirthday).getSeconds();
     }
 
     public static long minutesToBirthday(LocalDateTime now, LocalDate nextBirthday) {
-        // TODO: implement this method
-        return -1;
+        return calculateDuration(now, nextBirthday).toMinutes();
     }
 
     public static long hoursToBirthday(LocalDateTime now, LocalDate nextBirthday) {
-        // TODO: implement this method
-        return -1;
+        return calculateDuration(now, nextBirthday).toHours();
     }
 
     public static long daysToBirthday(LocalDateTime now, LocalDate nextBirthday) {
-        // TODO: implement this method
-        return -1;
+        return ChronoUnit.DAYS.between(now, nextBirthday.atStartOfDay());
     }
 
     public static long monthsToBirthday(LocalDateTime now, LocalDate nextBirthday) {
-        // TODO: implement this method
-        return -1;
+        return ChronoUnit.MONTHS.between(now, nextBirthday.atStartOfDay());
     }
 
     public static LocalDate getNextBirthday(LocalDate dateOfBirth) {
-        // TODO: implement this method
-        return null;
+        LocalDateTime now = LocalDateTime.now();
+        LocalDate nextBirthday = dateOfBirth.withYear(now.getYear());
+        if (nextBirthday.isBefore(now.toLocalDate())) {
+            nextBirthday = nextBirthday.plusYears(1);
+        }
+        System.out.println("Next your Birthday is on - " + nextBirthday);
+        return nextBirthday;
     }
 
     public static void main(String[] args) {
@@ -46,7 +52,7 @@ public class TimeToBirthdayCalculator {
         LocalDateTime now = LocalDateTime.now();
         LocalDate dateOfBirth = LocalDate.parse(dateOfBirthStr);
 
-        if(dateOfBirth.getMonthValue() == now.getMonthValue() && dateOfBirth.getDayOfMonth() == now.getDayOfMonth()) {
+        if (dateOfBirth.getMonthValue() == now.getMonthValue() && dateOfBirth.getDayOfMonth() == now.getDayOfMonth()) {
             System.out.println("Happy Birthday!");
             return;
         }
