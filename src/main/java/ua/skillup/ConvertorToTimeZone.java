@@ -1,14 +1,16 @@
 package ua.skillup;
 
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Scanner;
 
 public class ConvertorToTimeZone {
 
     public static ZonedDateTime convertToTimezone(ZonedDateTime time, String timezone) {
-        // TODO: implement this method
-        return null;
+        ZoneId zoneId = ZoneId.of(timezone);
+        return time.withZoneSameInstant(zoneId);
     }
+
     public static void main(String[] args) {
         System.out.println("Input the timezone in the format: 'Europe/Kiev'");
         System.out.println("See the list of available timezones here: https://garygregory.wordpress.com/2013/06/18/what-are-the-java-timezone-ids/");
