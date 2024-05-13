@@ -7,7 +7,7 @@ import java.time.Period;
 public class AgeCalculator {
     public static int calculateAge(LocalDate dateOfBirth) {
         Period years = Period.between(dateOfBirth, LocalDate.now());
-        return years.getDays();
+        return years.getYears();
     }
 
     public static void main(String[] args) {
