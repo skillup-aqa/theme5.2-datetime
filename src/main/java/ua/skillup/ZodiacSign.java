@@ -19,20 +19,20 @@ public enum ZodiacSign {
 
     private final int beginDay;
     private final int beginMonth;
-    private final int andDay;
-    private final int andMonth;
+    private final int endDay;
+    private final int endMonth;
 
-    ZodiacSign(int beginDay, int beginMonth, int andDay, int andMonth) {
+    ZodiacSign(int beginDay, int beginMonth, int endDay, int endMonth) {
         this.beginDay = beginDay;
         this.beginMonth = beginMonth;
-        this.andDay = andDay;
-        this.andMonth = andMonth;
+        this.endDay = endDay;
+        this.endMonth = endMonth;
     }
 
     public static ZodiacSign getZodiacSign(int day, int month) {
         for (ZodiacSign sign : ZodiacSign.values()) {
             if ((month == sign.beginMonth && day >= sign.beginDay)
-                    || (month == sign.andMonth && day <= sign.andDay)) {
+                    || (month == sign.endMonth && day <= sign.endDay)) {
                 return sign;
             }
         }
